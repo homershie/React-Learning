@@ -58,9 +58,9 @@ export default function UseStatePractice() {
       <div className="practice-note">
         <h3>💡 重點提示</h3>
         <ul>
-          <li>❌ <strong>錯誤</strong>: 直接修改 state 物件 <code>user.name = '小明'</code></li>
-          <li>✅ <strong>正確</strong>: 創建新物件 <code>setUser({ ...user, name: '小明' })</code></li>
-          <li>✅ 更新陣列時也要創建新陣列，使用 <code>map</code>、<code>filter</code>、<code>[...array, newItem]</code></li>
+          <li>❌ <strong>錯誤</strong>: 直接修改 state 物件 <code>{`user.name = '小明'`}</code></li>
+          <li>✅ <strong>正確</strong>: 創建新物件 <code>{`setUser({ ...user, name: '小明' })`}</code></li>
+          <li>✅ 更新陣列時也要創建新陣列，使用 <code>map</code>、<code>filter</code>、<code>{`[...array, newItem]`}</code></li>
         </ul>
       </div>
 

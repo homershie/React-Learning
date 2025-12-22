@@ -1,5 +1,7 @@
-import Link from 'next/link';
-import GarminCalculator from './components/GarminCalculator';
+"use client";
+
+import Link from "next/link";
+import GarminCalculator from "./components/GarminCalculator";
 
 export default function Home() {
   return (
