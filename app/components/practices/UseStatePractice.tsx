@@ -141,6 +141,7 @@ setTodos(todos.filter(todo => todo.id !== id));`}</pre>
           margin-bottom: 10px;
           padding-left: 20px;
           position: relative;
+          color: #212529;
         }
 
         .practice-note code {

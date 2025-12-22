@@ -65,6 +65,8 @@
   border-radius: 10px;
   transition: all 0.3s ease;
   outline: none;
+  color: #212529;
+  background-color: white;
 }
 
 .inputField input:focus {
