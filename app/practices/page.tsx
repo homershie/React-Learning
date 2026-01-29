@@ -12,168 +12,64 @@ export default function PracticesPage() {
   const [activeTab, setActiveTab] = useState<PracticeTab>('useState');
 
   return (
-    <div className="practices-container">
-      <nav className="nav-bar">
-        <Link href="/" className="nav-link">
+    <div className="min-h-screen p-10 md:p-5 bg-gradient-to-br from-indigo-500 to-purple-600">
+      <nav className="fixed top-5 right-5 z-50 flex flex-col md:flex-row gap-2.5">
+        <Link
+          href="/"
+          className="px-5 py-2.5 bg-white/90 text-indigo-500 no-underline rounded-lg font-semibold shadow-lg transition-all hover:bg-white hover:-translate-y-0.5 hover:shadow-xl text-sm md:text-base"
+        >
           Garmin 計算器
         </Link>
-        <Link href="/practices" className="nav-link active">
+        <Link
+          href="/practices"
+          className="px-5 py-2.5 bg-white text-indigo-500 no-underline rounded-lg font-semibold shadow-lg transition-all hover:bg-white hover:-translate-y-0.5 hover:shadow-xl text-sm md:text-base"
+        >
           🎯 面試練習
         </Link>
       </nav>
-      <div className="practices-header">
-        <h1>🎯 React 面試練習區</h1>
-        <p>面試常考的變化題練習</p>
+      <div className="text-center text-white mb-10">
+        <h1 className="text-4xl md:text-3xl font-bold mb-2.5">🎯 React 面試練習區</h1>
+        <p className="text-lg opacity-90">面試常考的變化題練習</p>
       </div>
 
-      <div className="practices-tabs">
+      <div className="flex justify-center gap-2.5 mb-8 flex-wrap">
         <button
-          className={activeTab === 'useState' ? 'active' : ''}
+          className={`px-6 py-3 text-base font-semibold border-none rounded-lg cursor-pointer transition-all ${
+            activeTab === 'useState'
+              ? 'bg-white text-indigo-500 shadow-lg'
+              : 'bg-white/20 text-white hover:bg-white/30'
+          } hover:-translate-y-0.5`}
           onClick={() => setActiveTab('useState')}
         >
           useState 更新物件
         </button>
         <button
-          className={activeTab === 'useEffect' ? 'active' : ''}
+          className={`px-6 py-3 text-base font-semibold border-none rounded-lg cursor-pointer transition-all ${
+            activeTab === 'useEffect'
+              ? 'bg-white text-indigo-500 shadow-lg'
+              : 'bg-white/20 text-white hover:bg-white/30'
+          } hover:-translate-y-0.5`}
           onClick={() => setActiveTab('useEffect')}
         >
           useEffect 依賴陣列
         </button>
         <button
-          className={activeTab === 'errorHandling' ? 'active' : ''}
+          className={`px-6 py-3 text-base font-semibold border-none rounded-lg cursor-pointer transition-all ${
+            activeTab === 'errorHandling'
+              ? 'bg-white text-indigo-500 shadow-lg'
+              : 'bg-white/20 text-white hover:bg-white/30'
+          } hover:-translate-y-0.5`}
           onClick={() => setActiveTab('errorHandling')}
         >
           錯誤處理技巧
         </button>
       </div>
 
-      <div className="practices-content">
+      <div className="max-w-4xl mx-auto bg-white rounded-2xl p-10 md:p-5 shadow-2xl">
         {activeTab === 'useState' && <UseStatePractice />}
         {activeTab === 'useEffect' && <UseEffectPractice />}
         {activeTab === 'errorHandling' && <ErrorHandlingPractice />}
       </div>
-
-      <style jsx>{`
-        .practices-container {
-          min-height: 100vh;
-          padding: 40px 20px;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .practices-header {
-          text-align: center;
-          color: white;
-          margin-bottom: 40px;
-        }
-
-        .practices-header h1 {
-          font-size: 36px;
-          margin-bottom: 10px;
-          font-weight: 700;
-        }
-
-        .practices-header p {
-          font-size: 18px;
-          opacity: 0.9;
-        }
-
-        .practices-tabs {
-          display: flex;
-          justify-content: center;
-          gap: 10px;
-          margin-bottom: 30px;
-          flex-wrap: wrap;
-        }
-
-        .practices-tabs button {
-          padding: 12px 24px;
-          font-size: 16px;
-          font-weight: 600;
-          border: none;
-          border-radius: 8px;
-          background: rgba(255, 255, 255, 0.2);
-          color: white;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-
-        .practices-tabs button:hover {
-          background: rgba(255, 255, 255, 0.3);
-          transform: translateY(-2px);
-        }
-
-        .practices-tabs button.active {
-          background: white;
-          color: #667eea;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .practices-content {
-          max-width: 1000px;
-          margin: 0 auto;
-          background: white;
-          border-radius: 20px;
-          padding: 40px;
-          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .nav-bar {
-          position: fixed;
-          top: 20px;
-          right: 20px;
-          z-index: 1000;
-          display: flex;
-          gap: 10px;
-        }
-
-        .nav-link {
-          padding: 10px 20px;
-          background: rgba(255, 255, 255, 0.9);
-          color: #667eea;
-          text-decoration: none;
-          border-radius: 8px;
-          font-weight: 600;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-          transition: all 0.3s ease;
-        }
-
-        .nav-link:hover {
-          background: white;
-          transform: translateY(-2px);
-          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .nav-link.active {
-          background: white;
-          color: #667eea;
-        }
-
-        @media (max-width: 768px) {
-          .practices-container {
-            padding: 20px 10px;
-          }
-
-          .practices-header h1 {
-            font-size: 28px;
-          }
-
-          .practices-content {
-            padding: 20px;
-          }
-
-          .nav-bar {
-            top: 10px;
-            right: 10px;
-            flex-direction: column;
-          }
-
-          .nav-link {
-            padding: 8px 16px;
-            font-size: 14px;
-          }
-        }
-      `}</style>
     </div>
   );
 }
-
